@@ -1,1 +1,131 @@
 /* Other rules */
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* HEADER */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1280px;
+  margin: auto;
+  padding: 10px 0;
+}
+
+.header img {
+  height: 40px;
+}
+
+.sign-button {
+  height: 30px;
+  width: 115px;
+  border: 1px solid #2cb1ba;
+  border-radius: 5px;
+  font-size: 12px;
+  outline: none;
+  margin-right: 20px;
+}
+
+.connect-button {
+  height: 30px;
+  width: 115px;
+  border: 1px solid #2cb1ba;
+  border-radius: 5px;
+  font-size: 12px;
+  outline: none;
+}
+
+.publish-button {
+  height: 30px;
+  width: 115px;
+  border: 1px solid #2cb1ba;
+  border-radius: 5px;
+  font-size: 12px;
+  outline: none;
+}
+
+/* HOME */
+
+.home {
+  background-image: url("./assets/img/home-page.jpg");
+  height: 455px;
+  width: 100%;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+}
+
+.home > div {
+  width: 1280px;
+  margin: auto;
+}
+
+.home-title {
+  height: 220px;
+  width: 360px;
+  background-color: #fff;
+  line-height: 28.3px;
+  padding: 25px;
+  border-radius: 3px;
+  font-size: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 75px;
+  box-shadow: 0 0 2px rgb(17 17 17 / 24%);
+}
+
+.home-title button {
+  height: 45px;
+  width: 187px;
+  background-color: #2baeb7;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  padding: 0 14px;
+  margin-top: 32px;
+}
+
+/* ARTICLES */
+
+.articles {
+  width: 1280px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.card-profil {
+  width: 235px;
+  padding: 0 6px 16px;
+  cursor: pointer;
+}
+
+.username {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: #999999;
+  font-size: 12px;
+  line-height: 10px;
+}
+
+.card-profil img {
+  height: 360px;
+  width: 235px;
+  object-fit: cover;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  color: #000000;
+  font-size: 12px;
+  line-height: 10px;
+}
