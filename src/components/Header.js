@@ -1,4 +1,6 @@
-const Header = () => {
+import { Link } from "react-router-dom";
+
+const Header = ({ userToken, setUser }) => {
   return (
     <div className="header">
       <div>
@@ -12,9 +14,24 @@ const Header = () => {
         />
       </div>
       <div className="header-button">
-        {/* Ajouter condition se déconnecter (cf Deliveroo) */}
-        <button className="sign-button">S'inscrire</button>
-        <button className="connect-button">Se connecter</button>
+        {userToken ? (
+          <button
+            onClick={() => {
+              setUser(null);
+            }}
+          >
+            Se déconnecter
+          </button>
+        ) : (
+          <>
+            <Link to="/signup">
+              <button className="sign-button">S'inscrire</button>
+            </Link>
+            <Link to="/login">
+              <button className="connect-button">Se connecter</button>
+            </Link>
+          </>
+        )}
       </div>
       <div>
         <button className="publish-button">Vends tes articles</button>
