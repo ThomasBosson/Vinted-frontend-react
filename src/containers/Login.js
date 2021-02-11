@@ -26,6 +26,10 @@ const Login = ({ setUser }) => {
   return (
     <div className="login-body">
       <div className="login-container">
+        <div className="happy-word">
+          <h2>Ha, te revoilà!</h2>
+          <p>Nous sommes si heureux de te revoir!</p>
+        </div>
         <form onSubmit={handleSubmit}>
           <input
             type="email"

@@ -16,6 +16,7 @@ const Header = ({ userToken, setUser }) => {
       <div className="header-button">
         {userToken ? (
           <button
+            className="disconnect-button"
             onClick={() => {
               setUser(null);
             }}
