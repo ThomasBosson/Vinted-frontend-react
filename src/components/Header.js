@@ -12,6 +12,7 @@ const Header = () => {
         />
       </div>
       <div className="header-button">
+        {/* Ajouter condition se déconnecter (cf Deliveroo) */}
         <button className="sign-button">S'inscrire</button>
         <button className="connect-button">Se connecter</button>
       </div>

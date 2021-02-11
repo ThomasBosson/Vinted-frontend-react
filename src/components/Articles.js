@@ -14,9 +14,9 @@ const Articles = ({ data, isLoading }) => {
           <img src={data.product_image.secure_url} alt="" />
         </Link>
         <div className="details">
-          <span>{data.product_price} €</span>
-          <span>{data.product_details[1].TAILLE}</span>
-          <span>{data.product_details[0].MARQUE}</span>
+          <p>{data.product_price} €</p>
+          <p>{data.product_details[1].TAILLE}</p>
+          <p>{data.product_details[0].MARQUE}</p>
         </div>
       </div>
     </>

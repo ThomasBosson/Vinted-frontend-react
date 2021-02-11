@@ -26,6 +26,8 @@ body {
   font-size: 12px;
   outline: none;
   margin-right: 20px;
+  color: #fff;
+  background: #09b1ba;
 }
 
 .connect-button {
@@ -35,6 +37,8 @@ body {
   border-radius: 5px;
   font-size: 12px;
   outline: none;
+  color: #fff;
+  background: #09b1ba;
 }
 
 .publish-button {
@@ -44,6 +48,8 @@ body {
   border-radius: 5px;
   font-size: 12px;
   outline: none;
+  color: #fff;
+  background: #09b1ba;
 }
 
 /* HOME */
@@ -128,4 +134,88 @@ body {
   color: #000000;
   font-size: 12px;
   line-height: 10px;
+}
+
+/* OFFER */
+
+.offer-body {
+  height: calc(100vh - 60px);
+  background-color: #ebedee;
+}
+
+.offer-container {
+  width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+}
+
+.offer-pic {
+  height: 600px;
+  object-fit: cover;
+}
+
+.offer-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  width: 320px;
+  padding: 40px;
+}
+
+.offer-details button {
+  color: #fff;
+  background: #09b1ba;
+  border: 1px solid #09b1ba;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 16px;
+  height: 36px;
+  padding: 0 16px;
+  line-height: 36px;
+  margin-top: 32px;
+}
+
+.offer-price {
+  font-size: 24px;
+  line-height: 32px;
+  color: #111;
+}
+
+.offer-list {
+  list-style-type: none;
+  padding: 0;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+
+.offer-list li {
+  display: flex;
+  padding: 2px 0;
+}
+
+.offer-key {
+  flex: 1 1;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.offer-value {
+  color: #666666;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(17, 17, 17, 0.1);
+}
+
+.offer-name {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: 700;
 }
