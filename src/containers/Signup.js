@@ -7,6 +7,7 @@ const Signup = ({ setUser }) => {
   // Déclaration des states
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
 
@@ -18,6 +19,7 @@ const Signup = ({ setUser }) => {
       {
         username: username,
         email: email,
+        phone: phone,
         password: password,
       }
     );
@@ -46,6 +48,13 @@ const Signup = ({ setUser }) => {
             value={email}
             placeholder="Email"
             onChange={(event) => setEmail(event.target.value)}
+          />
+          <input
+            className="input-1"
+            type="phone"
+            value={phone}
+            placeholder="Téléphone"
+            onChange={(event) => setPhone(event.target.value)}
           />
           <input
             className="input-1"

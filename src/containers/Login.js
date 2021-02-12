@@ -9,9 +9,10 @@ const Login = ({ setUser }) => {
   const [password, setPassword] = useState("");
   const history = useHistory();
 
-  // Initialisation du handleSubmit
+  // Initialisation du handleSubmit login
   const handleSubmit = async (event) => {
     event.preventDefault();
+    // requête axios vers la route login du back avec l'url et la data à envoyer
     const response = await axios.post(
       "https://thomas-vinted-api.herokuapp.com/user/login",
       {
@@ -19,6 +20,7 @@ const Login = ({ setUser }) => {
         password: password,
       }
     );
+    // console.log(response.data)
     setUser(response.data.token);
     history.push("/");
   };
