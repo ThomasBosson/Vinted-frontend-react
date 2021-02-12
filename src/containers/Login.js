@@ -33,23 +33,23 @@ const Login = ({ setUser }) => {
           <p>Nous sommes si heureux de te revoir!</p>
         </div>
         <form onSubmit={handleSubmit}>
+          <span>Email</span>
           <input
             type="email"
             value={email}
-            placeholder="email"
             onChange={(event) => setEmail(event.target.value)}
           />
+          <span>Mot de passe</span>
           <input
             type="password"
             value={password}
-            placeholder="Mot de passe"
             onChange={(event) => setPassword(event.target.value)}
           />
           <button type="submit">Se connecter</button>
-          <div className="no-count">
-            <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
-          </div>
         </form>
+        <div className="no-count">
+          <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
+        </div>
       </div>
     </div>
   );

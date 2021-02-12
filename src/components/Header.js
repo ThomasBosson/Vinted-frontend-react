@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Header = ({ userToken, setUser }) => {
+  const history = useHistory();
   return (
     <div className="header">
       <div>
@@ -19,6 +20,7 @@ const Header = ({ userToken, setUser }) => {
             className="disconnect-button"
             onClick={() => {
               setUser(null);
+              history.push("/");
             }}
           >
             Se déconnecter

@@ -23,7 +23,7 @@ body {
   width: 115px;
   border: 1px solid #2cb1ba;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 15px;
   outline: none;
   margin-right: 20px;
   color: #fff;
@@ -43,7 +43,7 @@ body {
   width: 115px;
   border: 1px solid #2cb1ba;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 15px;
   outline: none;
   color: #fff;
   background: #09b1ba;
@@ -59,10 +59,10 @@ body {
 
 .publish-button {
   height: 30px;
-  width: 115px;
+  width: 150px;
   border: 1px solid #2cb1ba;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 15px;
   outline: none;
   color: #fff;
   background: #09b1ba;
@@ -81,7 +81,7 @@ body {
   width: 115px;
   border: 1px solid #2cb1ba;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 15px;
   outline: none;
   color: #fff;
   background: #09b1ba;
@@ -117,7 +117,7 @@ body {
   background-color: #fff;
   line-height: 28.3px;
   padding: 25px;
-  border-radius: 3px;
+  border-radius: 5px;
   font-size: 34px;
   display: flex;
   flex-direction: column;
@@ -275,6 +275,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 110px;
+  width: 300px;
 }
 
 .happy-word {
@@ -298,13 +299,6 @@ form {
   height: 40px;
   width: 300px;
   outline: none;
-}
-
-.login-container input::placeholder {
-  color: #09b1ba;
-}
-
-.login-container input:hover {
   border: solid 0.5px #09b1ba;
 }
 
@@ -357,8 +351,14 @@ form {
 form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 50px;
+}
+
+form span {
+  color: #09b1ba;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 
 .signup-container .input-1 {
@@ -409,6 +409,7 @@ form {
   margin-top: 32px;
   cursor: pointer;
   outline: none;
+  width: 100%;
 }
 
 .signup-container button:active {
@@ -425,4 +426,5 @@ form {
 
 .signup-container .yes-count {
   margin-top: 15px;
+  text-align: center;
 }

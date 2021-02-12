@@ -15,8 +15,8 @@ library.add();
 
 function App() {
   // Initialisation de la fonction qui va nous permettre de créer, lire et faire expirer des cookies
-
-  // useState contient la valeur du cookie utilisateur pour garder cet état lors d'un refresh ou autres manipulations
+  // Pour éviter de repasser à l'état initial de userToken, on initilaise useState à la valeur du cookie s'il existe.
+  // Ça permettra à l'utilisateur de rester connecter à un refresh d'une page.
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
   const setUser = (token) => {
     // Au login, si le token utilisateur existe...

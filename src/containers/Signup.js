@@ -35,32 +35,32 @@ const Signup = ({ setUser }) => {
           <p>Créer un compte</p>
         </div>
         <form onSubmit={handleSubmit}>
+          <span>Nom d'utilisateur</span>
           <input
             className="input-1"
             type="text"
             value={username}
-            placeholder="Nom d'utilisateur"
             onChange={(event) => setUsername(event.target.value)}
           />
+          <span>Email</span>
           <input
             className="input-1"
             type="email"
             value={email}
-            placeholder="Email"
             onChange={(event) => setEmail(event.target.value)}
           />
+          <span>Téléphone</span>
           <input
             className="input-1"
             type="phone"
             value={phone}
-            placeholder="Téléphone"
             onChange={(event) => setPhone(event.target.value)}
           />
+          <span>Mot de passe</span>
           <input
             className="input-1"
             type="password"
             value={password}
-            placeholder="Mot de passe"
             onChange={(event) => setPassword(event.target.value)}
           />
           <div className="signup-newsletter">
@@ -75,10 +75,10 @@ const Signup = ({ setUser }) => {
             </p>
           </div>
           <button type="submit">S'inscrire</button>
-          <div className="yes-count">
-            <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
-          </div>
         </form>
+        <div className="yes-count">
+          <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
+        </div>
       </div>
     </div>
   );
