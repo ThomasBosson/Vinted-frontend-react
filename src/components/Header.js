@@ -1,6 +1,7 @@
 import { Link, useHistory } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
-const Header = ({ userToken, setUser }) => {
+const Header = ({ userToken, setUser, search, setSearch }) => {
   const history = useHistory();
   return (
     <div className="header">
@@ -9,10 +10,27 @@ const Header = ({ userToken, setUser }) => {
       </div>
       <div className="search">
         <input
-          type="text"
           className="search-bar"
-          placeholder="Rechercher des articles"
+          type="text"
+          name="search"
+          value={search}
+          onChange={(event) => {
+            setSearch(event.target.value);
+          }}
         />
+        <div className="filters">
+          <div
+            style={{
+              marginTop: 25,
+              fontSize: 12,
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <span style={{ marginRight: 10 }}>Prix entre :</span>
+            <div className="range-price"></div>
+          </div>
+        </div>
       </div>
       <div className="header-button">
         {userToken ? (

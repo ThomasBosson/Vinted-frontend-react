@@ -33,10 +33,17 @@ function App() {
     }
   };
 
+  const [search, setSearch] = useState("");
+
   // Initialisation des routes
   return (
     <Router>
-      <Header userToken={userToken} setUser={setUser} />
+      <Header
+        userToken={userToken}
+        setUser={setUser}
+        search={search}
+        setSearch={setSearch}
+      />
       <Switch>
         <Route path="/offer/:id">
           <Offer />
@@ -48,7 +55,7 @@ function App() {
           <Login setUser={setUser} />
         </Route>
         <Route path="/">
-          <Home />
+          <Home search={search} />
         </Route>
       </Switch>
     </Router>

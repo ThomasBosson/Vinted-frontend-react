@@ -1,6 +1,6 @@
 /* Other rules */
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 /* HEADER */
@@ -16,6 +16,27 @@ body {
 
 .header img {
   height: 40px;
+}
+
+.search input {
+  width: 590px;
+  padding-left: 40px;
+  background-color: #f5f6f7;
+  border-radius: 5px;
+  height: 37px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  text-align: start;
+  cursor: text;
+}
+
+.range-price {
+  transform: scale(1);
+  cursor: inherit;
+  height: 36px;
+  display: flex;
+  width: 50%;
 }
 
 .sign-button {

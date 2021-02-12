@@ -5,7 +5,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Articles from "../components/Articles";
 
-const Home = () => {
+const Home = ({ search }) => {
   // Déclaration des states
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -14,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "https://thomas-vinted-api.herokuapp.com/offers"
+        `https://thomas-vinted-api.herokuapp.com/offers/${search}`
       );
       // console.log(response.data);
       setData(response.data);
