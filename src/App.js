@@ -9,10 +9,6 @@ import Login from "./containers/Login";
 import Home from "./containers/Home";
 import Offer from "./containers/Offer";
 
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {} from "@fortawesome/free-solid-svg-icons";
-library.add();
-
 function App() {
   // Initialisation de la fonction qui va nous permettre de créer, lire et faire expirer des cookies
   // Pour éviter de repasser à l'état initial de userToken, on initilaise useState à la valeur du cookie s'il existe.
@@ -34,6 +30,7 @@ function App() {
   };
 
   const [search, setSearch] = useState("");
+  const [priceRange, setPriceRange] = useState([0, 500]);
 
   // Initialisation des routes
   return (
@@ -43,6 +40,8 @@ function App() {
         setUser={setUser}
         search={search}
         setSearch={setSearch}
+        priceRange={priceRange}
+        setPriceRange={setPriceRange}
       />
       <Switch>
         <Route path="/offer/:id">
@@ -55,7 +54,7 @@ function App() {
           <Login setUser={setUser} />
         </Route>
         <Route path="/">
-          <Home search={search} />
+          <Home search={search} priceRange={priceRange} />
         </Route>
       </Switch>
     </Router>

@@ -1,12 +1,21 @@
 import { Link, useHistory } from "react-router-dom";
-import Button from "@material-ui/core/Button";
+import Range from "./Range";
 
-const Header = ({ userToken, setUser, search, setSearch }) => {
+const Header = ({
+  userToken,
+  setUser,
+  search,
+  setSearch,
+  priceRange,
+  setPriceRange,
+}) => {
   const history = useHistory();
   return (
     <div className="header">
       <div>
-        <img alt="logo vinted" src="/img/vinted-logo.png" />
+        <Link to="/">
+          <img alt="logo vinted" src="/img/vinted-logo.png" />
+        </Link>
       </div>
       <div className="search">
         <input
@@ -27,8 +36,9 @@ const Header = ({ userToken, setUser, search, setSearch }) => {
               alignItems: "center",
             }}
           >
-            <span style={{ marginRight: 10 }}>Prix entre :</span>
-            <div className="range-price"></div>
+            <div className="filters">
+              <Range priceRange={priceRange} setPriceRange={setPriceRange} />
+            </div>
           </div>
         </div>
       </div>

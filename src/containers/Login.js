@@ -7,22 +7,30 @@ const Login = ({ setUser }) => {
   // Déclaration des states
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const history = useHistory();
 
   // Initialisation du handleSubmit login
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    // requête axios vers la route login du back avec l'url et la data à envoyer
-    const response = await axios.post(
-      "https://thomas-vinted-api.herokuapp.com/user/login",
-      {
-        email: email,
-        password: password,
+    try {
+      event.preventDefault();
+      // requête axios vers la route login du back avec l'url et la data à envoyer
+      const response = await axios.post(
+        "https://thomas-vinted-api.herokuapp.com/user/login",
+        {
+          email: email,
+          password: password,
+        }
+      );
+      // console.log(response.data)
+      setUser(response.data.token);
+      history.push("/");
+    } catch (error) {
+      setErrorMessage("Identifiant ou mot de passe invalide");
+      if (error.response) {
+        console.log(error.response.message);
       }
-    );
-    // console.log(response.data)
-    setUser(response.data.token);
-    history.push("/");
+    }
   };
 
   return (
@@ -34,12 +42,14 @@ const Login = ({ setUser }) => {
         </div>
         <form onSubmit={handleSubmit}>
           <span>Email</span>
+          <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <input
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
           <span>Mot de passe</span>
+          <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <input
             type="password"
             value={password}

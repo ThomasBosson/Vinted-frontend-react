@@ -5,23 +5,25 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Articles from "../components/Articles";
 
-const Home = ({ search }) => {
+const Home = ({ search, priceRange }) => {
   // Déclaration des states
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+
+  // Ascending / descending sort price
 
   // Indique à React que nos composants doivent s'exécuter après chaque affichage
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://thomas-vinted-api.herokuapp.com/offers/${search}`
+        `https://thomas-vinted-api.herokuapp.com/offers/?title=${search}&priceMin=${priceRange[0]}&priceMax=${priceRange[1]}`
       );
       // console.log(response.data);
       setData(response.data);
       setIsLoading(false);
     };
     fetchData();
-  }, []);
+  }, [search, priceRange]);
   return isLoading ? (
     <span>En cours de chargement... </span>
   ) : (

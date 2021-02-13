@@ -31,12 +31,9 @@ body {
   cursor: text;
 }
 
-.range-price {
-  transform: scale(1);
-  cursor: inherit;
-  height: 36px;
+.range-filter {
   display: flex;
-  width: 50%;
+  align-items: center;
 }
 
 .sign-button {
