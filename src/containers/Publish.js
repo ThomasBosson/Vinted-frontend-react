@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 
-const Publish = ({ userToken, setUser }) => {
+const Publish = ({ userToken }) => {
   const [file, setFile] = useState({});
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -29,6 +29,9 @@ const Publish = ({ userToken, setUser }) => {
       formData.append("condition", condition);
       formData.append("location", location);
       formData.append("price", price);
+      for (var pair of formData.entries()) {
+        console.log(pair[0] + ", " + pair[1]);
+      }
 
       const response = await axios.post(
         "https://thomas-vinted-api.herokuapp.com/offer/publish",
@@ -40,16 +43,9 @@ const Publish = ({ userToken, setUser }) => {
         }
       );
       // console.log(response.data)
-      if (response.data._id) {
-        setUser(response.data._id);
-        history.push(`/offer/${response.data._id}`);
-      } else {
-        setErrorMessage("Veillez à bien remplir tous les champs");
-      }
+      history.push(`/offer/${response.data._id}`);
     } catch (error) {
-      if (error.response) {
-        console.log(error.response.message);
-      }
+      setErrorMessage("Veillez à remplir tous les champs");
     }
   };
 
@@ -66,13 +62,17 @@ const Publish = ({ userToken, setUser }) => {
           <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <div className="file-upload">
             <input
+              id="file"
               type="file"
               onChange={(event) => setFile(event.target.files[0])}
             />
           </div>
-          <span>Donner un titre</span>
+          <span>Titre</span>
           <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <input
+            className="input-1"
+            id="title"
+            name="title"
             type="title"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
@@ -81,19 +81,24 @@ const Publish = ({ userToken, setUser }) => {
           <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <textarea
             type="description"
+            name="description"
+            id="description"
             value={description}
             onChange={(event) => setDescription(event.target.value)}
           />
           <span>Marque</span>
           <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <input
+            className="input-1"
             type="text"
+            id=""
             value={brand}
             onChange={(event) => setBrand(event.target.value)}
           />
           <span>Taille</span>
           <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <input
+            className="input-1"
             type="text"
             value={size}
             onChange={(event) => setSize(event.target.value)}
@@ -101,6 +106,7 @@ const Publish = ({ userToken, setUser }) => {
           <span>Couleur</span>
           <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <input
+            className="input-1"
             type="text"
             value={color}
             onChange={(event) => setColor(event.target.value)}
@@ -108,6 +114,7 @@ const Publish = ({ userToken, setUser }) => {
           <span>État</span>
           <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <input
+            className="input-1"
             type="text"
             value={condition}
             onChange={(event) => setCondition(event.target.value)}
@@ -115,6 +122,7 @@ const Publish = ({ userToken, setUser }) => {
           <span>Ville</span>
           <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <input
+            className="input-1"
             type="text"
             value={location}
             onChange={(event) => setLocation(event.target.value)}
@@ -122,7 +130,9 @@ const Publish = ({ userToken, setUser }) => {
           <span>Prix</span>
           <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <input
-            type="text"
+            className="input-1"
+            type="number"
+            min={1}
             value={price}
             onChange={(event) => setPrice(event.target.value)}
           />

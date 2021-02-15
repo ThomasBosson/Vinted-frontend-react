@@ -24,7 +24,7 @@ const Login = ({ setUser }) => {
       );
       // console.log(response.data)
       setUser(response.data.token);
-      history.push("/");
+      history.push("/publish");
     } catch (error) {
       setErrorMessage("Identifiant ou mot de passe invalide");
       if (error.response) {
