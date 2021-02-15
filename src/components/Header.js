@@ -65,7 +65,9 @@ const Header = ({
         )}
       </div>
       <div>
-        <button className="publish-button">Vends tes articles</button>
+        <Link to="/publish">
+          <button className="publish-button">Vends tes articles</button>
+        </Link>
       </div>
     </div>
   );

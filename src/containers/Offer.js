@@ -36,7 +36,7 @@ const Offer = () => {
             <span className="offer-price">{data.product_price} €</span>
             <ul className="offer-list">
               {data.product_details.map((e) => {
-                // Object.keys renvoie un tableau contenant les keys de mon objet product_details suivi de leurs valeurs associées (dynamique)
+                // Object.keys renvoie un tableau contenant les keys de mon objet product_details suivi de leurs valeurs associées
                 const keys = Object.keys(e);
                 return (
                   <li>

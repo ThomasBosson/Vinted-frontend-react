@@ -41,7 +41,7 @@ body {
   width: 115px;
   border: 1px solid #2cb1ba;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 14px;
   outline: none;
   margin-right: 20px;
   color: #fff;
@@ -61,7 +61,7 @@ body {
   width: 115px;
   border: 1px solid #2cb1ba;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 14px;
   outline: none;
   color: #fff;
   background: #09b1ba;
@@ -80,7 +80,7 @@ body {
   width: 150px;
   border: 1px solid #2cb1ba;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 14px;
   outline: none;
   color: #fff;
   background: #09b1ba;
@@ -99,7 +99,7 @@ body {
   width: 115px;
   border: 1px solid #2cb1ba;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 14px;
   outline: none;
   color: #fff;
   background: #09b1ba;
@@ -176,7 +176,7 @@ body {
 .username {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding-bottom: 10px;
   color: #999999;
   font-size: 12px;
   line-height: 10px;
@@ -191,10 +191,14 @@ body {
 .details {
   display: flex;
   flex-direction: column;
-  padding: 8px;
+  padding-top: 10px;
   color: #000000;
   font-size: 12px;
   line-height: 10px;
+}
+
+.details p {
+  padding-bottom: 5px;
 }
 
 /* OFFER */
@@ -326,7 +330,7 @@ form {
   border: 1px solid #09b1ba;
   border-radius: 4px;
   width: 100%;
-  font-size: 16px;
+  font-size: 14px;
   height: 36px;
   padding: 0 16px;
   line-height: 36px;
@@ -420,7 +424,7 @@ form span {
   background: #09b1ba;
   border: 1px solid #09b1ba;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 14px;
   height: 36px;
   padding: 0 16px;
   line-height: 36px;
@@ -445,4 +449,39 @@ form span {
 .signup-container .yes-count {
   margin-top: 15px;
   text-align: center;
+}
+
+/* PUBLISH */
+
+.publish-body {
+  height: calc(100vh - 60px);
+}
+
+.publish-container {
+  width: 1280px;
+  margin: 0 auto;
+  margin-top: 110px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.publish-word {
+  color: #09b1ba;
+  text-align: center;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.file-upload {
+  border-radius: 3px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

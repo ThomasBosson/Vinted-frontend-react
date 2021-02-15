@@ -8,11 +8,10 @@ import Signup from "./containers/Signup";
 import Login from "./containers/Login";
 import Home from "./containers/Home";
 import Offer from "./containers/Offer";
+import Publish from "./containers/Publish";
 
 function App() {
   // Initialisation de la fonction qui va nous permettre de créer, lire et faire expirer des cookies
-  // Pour éviter de repasser à l'état initial de userToken, on initilaise useState à la valeur du cookie s'il existe.
-  // Ça permettra à l'utilisateur de rester connecter à un refresh d'une page.
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
   const setUser = (token) => {
     // Au login, si le token utilisateur existe...
@@ -44,6 +43,9 @@ function App() {
         setPriceRange={setPriceRange}
       />
       <Switch>
+        <Route path="/publish">
+          <Publish userToken={userToken} />
+        </Route>
         <Route path="/offer/:id">
           <Offer />
         </Route>
