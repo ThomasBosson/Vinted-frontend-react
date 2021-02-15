@@ -2,8 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 
-const Publish = ({ userToken }) => {
-  const [data, setData] = useState({});
+const Publish = ({ userToken, setUser }) => {
   const [file, setFile] = useState({});
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -21,7 +20,7 @@ const Publish = ({ userToken }) => {
     try {
       e.preventDefault();
       const formData = new FormData();
-      formData.append("file", file);
+      formData.append("picture", file);
       formData.append("title", title);
       formData.append("description", description);
       formData.append("brand", brand);
@@ -41,10 +40,9 @@ const Publish = ({ userToken }) => {
         }
       );
       // console.log(response.data)
-      setData(response.data);
-      if (response.data) {
-        setData(response.data);
-        history.push(`/offer/${response.data}`);
+      if (response.data._id) {
+        setUser(response.data._id);
+        history.push(`/offer/${response.data._id}`);
       } else {
         setErrorMessage("Veillez à bien remplir tous les champs");
       }
