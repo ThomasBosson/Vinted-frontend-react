@@ -1,5 +1,6 @@
 import { Link, useHistory } from "react-router-dom";
 import Range from "./Range";
+import CheckSwitch from "./CheckSwitch";
 
 const Header = ({
   userToken,
@@ -8,6 +9,8 @@ const Header = ({
   setSearch,
   priceRange,
   setPriceRange,
+  priceSwitch,
+  setPriceSwitch,
 }) => {
   const history = useHistory();
   return (
@@ -38,6 +41,10 @@ const Header = ({
           >
             <div className="filters">
               <Range priceRange={priceRange} setPriceRange={setPriceRange} />
+              <CheckSwitch
+                priceSwitch={priceSwitch}
+                setPriceSwitch={setPriceSwitch}
+              />
             </div>
           </div>
         </div>

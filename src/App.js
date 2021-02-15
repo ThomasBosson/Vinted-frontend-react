@@ -30,6 +30,7 @@ function App() {
 
   const [search, setSearch] = useState("");
   const [priceRange, setPriceRange] = useState([0, 500]);
+  const [priceSwitch, setPriceSwitch] = useState(true);
 
   // Initialisation des routes
   return (
@@ -41,6 +42,8 @@ function App() {
         setSearch={setSearch}
         priceRange={priceRange}
         setPriceRange={setPriceRange}
+        priceSwitch={priceSwitch}
+        setPriceSwitch={setPriceSwitch}
       />
       <Switch>
         <Route path="/publish">
@@ -56,7 +59,11 @@ function App() {
           <Login setUser={setUser} />
         </Route>
         <Route path="/">
-          <Home search={search} priceRange={priceRange} />
+          <Home
+            search={search}
+            priceRange={priceRange}
+            priceSwitch={priceSwitch}
+          />
         </Route>
       </Switch>
     </Router>

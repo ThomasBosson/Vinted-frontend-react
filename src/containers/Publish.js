@@ -29,9 +29,9 @@ const Publish = ({ userToken }) => {
       formData.append("condition", condition);
       formData.append("location", location);
       formData.append("price", price);
-      for (var pair of formData.entries()) {
-        console.log(pair[0] + ", " + pair[1]);
-      }
+      // for (var pair of formData.entries()) {
+      //   console.log(pair[0] + ", " + pair[1]);
+      // }
 
       const response = await axios.post(
         "https://thomas-vinted-api.herokuapp.com/offer/publish",
@@ -45,7 +45,7 @@ const Publish = ({ userToken }) => {
       // console.log(response.data)
       history.push(`/offer/${response.data._id}`);
     } catch (error) {
-      setErrorMessage("Veillez à remplir tous les champs");
+      setErrorMessage("Veuillez remplir tous les champs");
     }
   };
 

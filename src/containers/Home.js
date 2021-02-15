@@ -4,8 +4,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Articles from "../components/Articles";
+import { Link } from "react-router-dom";
 
-const Home = ({ search, priceRange }) => {
+const Home = ({ search, priceRange, priceSwitch }) => {
   // Déclaration des states
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -16,14 +17,14 @@ const Home = ({ search, priceRange }) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://thomas-vinted-api.herokuapp.com/offers/?title=${search}&priceMin=${priceRange[0]}&priceMax=${priceRange[1]}`
+        `https://thomas-vinted-api.herokuapp.com/offers/?title=${search}&sort=${priceSwitch}&priceMin=${priceRange[0]}&priceMax=${priceRange[1]}`
       );
       // console.log(response.data);
       setData(response.data);
       setIsLoading(false);
     };
     fetchData();
-  }, [search, priceRange]);
+  }, [search, priceRange, priceSwitch]);
   return isLoading ? (
     <span>En cours de chargement... </span>
   ) : (
@@ -33,7 +34,9 @@ const Home = ({ search, priceRange }) => {
         <div>
           <div className="home-title">
             Prêt à faire du tri dans vos placards ?
-            <button>Commencer à vendre</button>
+            <Link to="/publish">
+              <button>Commencer à vendre</button>
+            </Link>
           </div>
         </div>
       </div>
