@@ -241,6 +241,7 @@ body {
   padding: 0 16px;
   line-height: 36px;
   margin-top: 32px;
+  cursor: pointer;
 }
 
 .offer-price {
