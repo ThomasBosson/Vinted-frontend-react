@@ -1,13 +1,15 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Redirect, useHistory } from "react-router-dom";
 
-const Offer = () => {
+const Offer = ({ userToken }) => {
   // Get params id of each product
   const { id } = useParams();
   // State declaration for API's data, useEffect
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const history = useHistory();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,7 +56,24 @@ const Offer = () => {
               <p>{data.product_name}</p>
             </div>
           </div>
-          <button>Acheter</button>
+          {!userToken ? (
+            <Redirect to="/login" />
+          ) : (
+            <button
+              onClick={() => {
+                history.push({
+                  pathname: "/payment",
+                  state: {
+                    price: data.product_price,
+                    title: data.product_name,
+                    picture: data.product_image.secure_url,
+                  },
+                });
+              }}
+            >
+              Acheter
+            </button>
+          )}
         </div>
       </div>
     </div>

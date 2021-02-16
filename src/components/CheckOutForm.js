@@ -1,9 +1,13 @@
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-const CheckOutForm = () => {
+const CheckOutForm = ({ total, title }) => {
   const stripe = useStripe();
   const elements = useElements();
+  const [succeed, setSucceed] = useState("");
+  const history = useHistory();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -22,12 +26,16 @@ const CheckOutForm = () => {
 
       // Get request to server
       const response = await axios.post(
+        // "http://localhost:3000/payment",
         "https://thomas-vinted-api.herokuapp.com/payment",
         {
           stripeToken: stripeToken,
+          amount: total,
+          title: title,
         }
       );
-      // console.log(response.data);
+      setSucceed("Paiement validé ! Merci pour votre commande");
+      history.push("/");
     } catch (error) {
       console.log(error.message);
     }
@@ -36,7 +44,8 @@ const CheckOutForm = () => {
   return (
     <form onSubmit={handleSubmit} className="payment-form">
       <CardElement />
-      <button type="submit">Valider</button>
+      <button type="submit">Valider votre paiement</button>
+      <span>{succeed}</span>
     </form>
   );
 };

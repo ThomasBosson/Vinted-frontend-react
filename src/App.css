@@ -543,27 +543,75 @@ form span {
 }
 
 .payment-container {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 600px;
   margin: 0 auto;
   padding: 36px 20px;
+}
+
+.payment-summary span {
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  color: #09b1ba;
+  font-size: 20px;
+  padding: 24px 24px 8px;
+  text-align: center;
+}
+
+.content {
+  padding: 24px;
+  text-align: justify;
+}
+
+.content ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border: 1px solid #09b1ba;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.content ul li {
+  font-size: 16px;
+  line-height: 22px;
+  color: #666;
+  padding: 4px 0;
+  display: grid;
+  grid: auto/1fr auto;
+  align-items: center;
 }
 
 .payment-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
-}
-
-.payment-form button {
-  width: 100%;
+  margin-top: 0px;
 }
 
 .StripeElement {
   width: 500px;
   margin-bottom: 20px;
+}
+
+.payment-form button {
+  margin-top: 30px;
+  width: 300px;
+  color: #fff;
+  background: #09b1ba;
+  border: 1px solid #09b1ba;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 36px;
+  padding: 0 16px;
+  line-height: 36px;
+  margin-top: 30px;
+  cursor: pointer;
+  outline: none;
+}
+
+.payment-form button:active {
+  background-color: white;
+  border: 1px solid #09b1ba;
+  color: #09b1ba;
 }
