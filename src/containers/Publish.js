@@ -42,7 +42,6 @@ const Publish = ({ userToken }) => {
           },
         }
       );
-      // console.log(response.data)
       history.push(`/offer/${response.data._id}`);
     } catch (error) {
       setErrorMessage("Veuillez remplir tous les champs");
@@ -90,8 +89,8 @@ const Publish = ({ userToken }) => {
           <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <input
             className="input-1"
+            id="brand"
             type="text"
-            id=""
             value={brand}
             onChange={(event) => setBrand(event.target.value)}
           />
@@ -99,6 +98,7 @@ const Publish = ({ userToken }) => {
           <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <input
             className="input-1"
+            id="size"
             type="text"
             value={size}
             onChange={(event) => setSize(event.target.value)}
@@ -107,6 +107,7 @@ const Publish = ({ userToken }) => {
           <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <input
             className="input-1"
+            id="color"
             type="text"
             value={color}
             onChange={(event) => setColor(event.target.value)}
@@ -115,6 +116,7 @@ const Publish = ({ userToken }) => {
           <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <input
             className="input-1"
+            id="condition"
             type="text"
             value={condition}
             onChange={(event) => setCondition(event.target.value)}
@@ -123,6 +125,7 @@ const Publish = ({ userToken }) => {
           <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <input
             className="input-1"
+            id="location"
             type="text"
             value={location}
             onChange={(event) => setLocation(event.target.value)}
@@ -131,6 +134,7 @@ const Publish = ({ userToken }) => {
           <span style={{ color: "#f04846" }}>{errorMessage}</span>
           <input
             className="input-1"
+            id="price"
             type="number"
             min={1}
             value={price}

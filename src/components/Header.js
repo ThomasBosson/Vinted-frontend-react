@@ -50,6 +50,8 @@ const Header = ({
         </div>
       </div>
       <div className="header-button">
+        {/* If userToken exists disconnected button appears */}
+        {/* At click it disappears and return to home page*/}
         {userToken ? (
           <button
             className="disconnect-button"

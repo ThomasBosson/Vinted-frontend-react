@@ -11,28 +11,27 @@ import Offer from "./containers/Offer";
 import Publish from "./containers/Publish";
 
 function App() {
-  // Initialisation de la fonction qui va nous permettre de créer, lire et faire expirer des cookies
+  // We check if the user's token exists
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
   const setUser = (token) => {
-    // Au login, si le token utilisateur existe...
     if (token) {
-      // Création d'un cookie pour stocker son token
+      // creation and storage of user's cookie
       Cookies.set("userToken", token, { expires: 7 });
-      // Mise à jour du token
+      // Update user's token
       setUserToken(token);
     } else {
-      // A la déconnection, supprimer le cookie de l'utilisateur
+      // Delete user's cookies
       Cookies.remove("userToken");
-      // Mise à jour du token
+      // Update user's token like "null"
       setUserToken(null);
     }
   };
 
+  // State declaration for search bar and price filters
   const [search, setSearch] = useState("");
   const [priceRange, setPriceRange] = useState([0, 500]);
   const [priceSwitch, setPriceSwitch] = useState(true);
 
-  // Initialisation des routes
   return (
     <Router>
       <Header

@@ -1,25 +1,19 @@
-// Mise en page de la page Home de Vinted
-// Mapper l'API contenant les offres afin de les retourner sur la Home Page
-
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Articles from "../components/Articles";
 import { Link } from "react-router-dom";
 
 const Home = ({ search, priceRange, priceSwitch }) => {
-  // Déclaration des states
+  // State declaration for API's data and useEffect
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  // Ascending / descending sort price
-
-  // Indique à React que nos composants doivent s'exécuter après chaque affichage
+  // Run after each display
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
         `https://thomas-vinted-api.herokuapp.com/offers/?title=${search}&sort=${priceSwitch}&priceMin=${priceRange[0]}&priceMax=${priceRange[1]}`
       );
-      // console.log(response.data);
       setData(response.data);
       setIsLoading(false);
     };
@@ -41,6 +35,7 @@ const Home = ({ search, priceRange, priceSwitch }) => {
         </div>
       </div>
       <div className="articles">
+        {/* Loop on offers from API */}
         {data.offers.map((e) => {
           return <Articles data={e} key={e._id} isLoading={isLoading} />;
         })}

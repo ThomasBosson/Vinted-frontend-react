@@ -9,7 +9,6 @@ const Articles = ({ data, isLoading }) => {
         <div className="username">
           <span>{data.owner.account.username}</span>
         </div>
-        {/* Link sur la profil pic qui fera le pont pour rejoindre le container offer */}
         <Link to={`/Offer/${data._id}`}>
           <img src={data.product_image.secure_url} alt="" />
         </Link>

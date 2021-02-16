@@ -3,7 +3,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const Offer = () => {
+  // Get params id of each product
   const { id } = useParams();
+  // State declaration for API's data, useEffect
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -35,8 +37,9 @@ const Offer = () => {
           <div>
             <span className="offer-price">{data.product_price} €</span>
             <ul className="offer-list">
+              {/* Loop on product_details from API */}
               {data.product_details.map((e) => {
-                // Object.keys renvoie un tableau contenant les keys de mon objet product_details suivi de leurs valeurs associées
+                // return an array containing the keys of my product_details object followed by their associated values
                 const keys = Object.keys(e);
                 return (
                   <li>

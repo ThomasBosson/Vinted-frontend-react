@@ -4,17 +4,17 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const Login = ({ setUser }) => {
-  // Déclaration des states
+  // State declaration email, password, errorMessage
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  // useHistory hook gives an access to the history instance that may use to navigate
   const history = useHistory();
 
-  // Initialisation du handleSubmit login
+  // login handleSubmit initialization
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-      // requête axios vers la route login du back avec l'url et la data à envoyer
       const response = await axios.post(
         "https://thomas-vinted-api.herokuapp.com/user/login",
         {
@@ -22,8 +22,8 @@ const Login = ({ setUser }) => {
           password: password,
         }
       );
-      // console.log(response.data)
       setUser(response.data.token);
+      // navigate to publish once logged
       history.push("/publish");
     } catch (error) {
       setErrorMessage("Identifiant ou mot de passe invalide");

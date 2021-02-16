@@ -1,7 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/core/Slider";
 
+// Package Material UI
+
 const Range = ({ priceRange, setPriceRange }) => {
+  // useStyles template
   const useStyles = makeStyles({
     root: {
       color: "#2cb1ba",
@@ -9,6 +12,7 @@ const Range = ({ priceRange, setPriceRange }) => {
     },
   });
 
+  // handleChange initialization
   const handleChange = (e, newValue) => {
     setPriceRange(newValue);
   };

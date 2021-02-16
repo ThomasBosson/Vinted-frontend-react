@@ -4,14 +4,14 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const Signup = ({ setUser }) => {
-  // Déclaration des states
+  // State declaration username, email, phone, password
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  // useHistory hook gives an access to the history instance that may use to navigate
   const history = useHistory();
 
-  // Initialisation du handleSubmit
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.post(
@@ -24,6 +24,7 @@ const Signup = ({ setUser }) => {
       }
     );
     setUser(response.data.token);
+    // navigate to home once registered
     history.push("/");
   };
 
