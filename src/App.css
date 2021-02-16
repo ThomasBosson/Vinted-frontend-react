@@ -535,3 +535,35 @@ form span {
   border: 1px solid #09b1ba;
   color: #09b1ba;
 }
+
+/* PAYMENT */
+
+.payment-body {
+  height: calc(100vh - 60px);
+}
+
+.payment-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  margin: 0 auto;
+  padding: 36px 20px;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.payment-form button {
+  width: 100%;
+}
+
+.StripeElement {
+  width: 500px;
+  margin-bottom: 20px;
+}

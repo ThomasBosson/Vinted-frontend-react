@@ -9,6 +9,7 @@ import Login from "./containers/Login";
 import Home from "./containers/Home";
 import Offer from "./containers/Offer";
 import Publish from "./containers/Publish";
+import Payment from "./containers/Payment";
 
 function App() {
   // We check if the user's token exists
@@ -56,6 +57,9 @@ function App() {
         </Route>
         <Route path="/login">
           <Login setUser={setUser} />
+        </Route>
+        <Route path="/payment">
+          <Payment />
         </Route>
         <Route path="/">
           <Home
