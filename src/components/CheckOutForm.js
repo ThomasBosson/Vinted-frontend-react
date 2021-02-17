@@ -6,7 +6,7 @@ import axios from "axios";
 const CheckOutForm = ({ total, title }) => {
   const stripe = useStripe();
   const elements = useElements();
-  const [succeed, setSucceed] = useState("");
+  const [succeeded, setSucceeded] = useState("");
   const history = useHistory();
 
   const handleSubmit = async (event) => {
@@ -17,7 +17,7 @@ const CheckOutForm = ({ total, title }) => {
       const cardElement = elements.getElement(CardElement);
       // Request creation of token with Stripes's API
       const stripeResponse = await stripe.createToken(cardElement, {
-        // Get user Id
+        // Get user Id (will make dynamic later)
         name: "id du user",
       });
       // console.log(stripeResponse);
@@ -34,8 +34,10 @@ const CheckOutForm = ({ total, title }) => {
           title: title,
         }
       );
-      setSucceed("Paiement validé ! Merci pour votre commande");
-      history.push("/");
+      if (response.data.status === "succeeded") {
+        setSucceeded("Paiement validé ! Merci pour votre commande");
+        history.push("/");
+      }
     } catch (error) {
       console.log(error.message);
     }
@@ -45,7 +47,7 @@ const CheckOutForm = ({ total, title }) => {
     <form onSubmit={handleSubmit} className="payment-form">
       <CardElement />
       <button type="submit">Valider votre paiement</button>
-      <span>{succeed}</span>
+      <span>{succeeded}</span>
     </form>
   );
 };

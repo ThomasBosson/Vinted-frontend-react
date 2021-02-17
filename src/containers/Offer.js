@@ -66,7 +66,6 @@ const Offer = ({ userToken }) => {
                   state: {
                     price: data.product_price,
                     title: data.product_name,
-                    picture: data.product_image.secure_url,
                   },
                 });
               }}
